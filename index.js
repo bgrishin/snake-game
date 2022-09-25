@@ -1,5 +1,6 @@
 let canvas = document.getElementById("canvas"),
   isGameStarted = false,
+  isLongTailModeEnabled = false,
   ctx = canvas.getContext("2d"),
   scoreIs = document.getElementById("score"),
   direction = "",
@@ -188,6 +189,27 @@ function replay() {
   directionQueue = "right";
   score = 0;
   interval = setInterval(game, speedInterval);
+}
+
+function longTail() {
+  if (!isLongTailModeEnabled) {
+    document.querySelector(".long_tail_text").style.display = "block";
+    document.querySelector(".long_tail_button").innerHTML =
+      "Disable Long Tail Mode";
+    snakeLength = 20;
+    isLongTailModeEnabled = true;
+  } else {
+    document.querySelector(".long_tail_text").style.display = "none";
+    document.querySelector(".long_tail_button").innerHTML =
+      "Enable Long Tail Mode";
+    snakeLength = 5;
+    isLongTailModeEnabled = false;
+  }
+  setBackground("#F8F8F8", "#e3e3e3");
+  createSnake();
+  drawSnake();
+  createFood();
+  drawFood();
 }
 
 function game() {

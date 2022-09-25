@@ -23,7 +23,7 @@
             margin-bottom: 30px;
             font-size: 40px;
         }
-        .replay_button {
+        .replay_button, .long_tail_button {
             margin-top: 20px;
             width: 200px;
             height: 30px;
@@ -33,11 +33,17 @@
             font-weight: 500;
             vertical-align: middle;
             border: none;
-            position: absolute;
             display: none;
+            position: absolute;
             transition: .3s;
             box-shadow: 0px 0px 20px rgba(128, 128, 128, 0.41);
         }
+
+        .long_tail_button {
+            display: block;
+            position: relative;
+        }
+
         .replay_button:hover {
             background: #0c8640;
             cursor: pointer;
@@ -49,6 +55,13 @@
             position: absolute;
             z-index: 2;
             animation: fadeAnimation 1.5s ease-in-out infinite;
+        }
+
+        .long_tail_text {
+            margin: 0;
+            color: #1cb65f;
+            font-size: 16px;
+            display: none;
         }
 
         @keyframes fadeAnimation {
@@ -65,9 +78,11 @@
 </head>
 <body>
 <div class="score" id="score">0</div>
+<h3 class="long_tail_text">Long Tail Mode activated</h3>
 <canvas id="canvas" height="500px" width="500px"></canvas>
 <p class="start_text">To start press any key</p>
 <button class="replay_button" onclick="replay()">Replay</button>
+<button class="long_tail_button" onclick="longTail()">Enable Long Tail Mode</button>
     <script src="index.js"></script>
 </body>
 </html>
