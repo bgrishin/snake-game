@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Snake</title>
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            min-height: 70vh;
+        }
+        #canvas {
+            border: 5px solid #1cb65f;
+            border-radius: 10px;
+        }
+        .score {
+            margin-bottom: 30px;
+            font-size: 40px;
+        }
+        .replay_button {
+            margin-top: 20px;
+            width: 200px;
+            height: 30px;
+            color: white;
+            background: #1cb65f;
+            font-size: 15px;
+            font-weight: 500;
+            vertical-align: middle;
+            border: none;
+            position: absolute;
+            display: none;
+            transition: .3s;
+            box-shadow: 0px 0px 20px rgba(128, 128, 128, 0.41);
+        }
+        .replay_button:hover {
+            background: #0c8640;
+            cursor: pointer;
+        }
+        .start_text {
+            color: #1cb65f;
+            font-size: 30px;
+            font-weight: 600;
+            position: absolute;
+            z-index: 2;
+            animation: fadeAnimation 1.5s ease-in-out infinite;
+        }
+
+        @keyframes fadeAnimation {
+            0%, 100% {
+                opacity: 0.8;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,600;1,100;1,200&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="score" id="score">0</div>
+<canvas id="canvas" height="500px" width="500px"></canvas>
+<p class="start_text">To start press any key</p>
+<button class="replay_button" onclick="replay()">Replay</button>
+    <script src="index.js"></script>
+</body>
+</html>
